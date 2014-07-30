@@ -375,7 +375,9 @@ Images that are used for a similar purpose should be grouped in respective group
 
 ## Booleans
 
-Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
+Use `true` and `false` instead of `YES` and `NO`.
+
+Since `nil` resolves to `false` it is unnecessary to compare it in conditions. Never compare something directly to `true`, because `true` is defined to 1 and a `BOOL` can be up to 8 bits.
 
 This allows for more consistency across files and greater visual clarity.
 
@@ -407,8 +409,8 @@ if (![someObject boolValue])
 **Not:**
 
 ```objc
-if (isAwesome == YES) // Never do this.
-if ([someObject boolValue] == NO)
+if (isAwesome == true) // Never do this.
+if ([someObject boolValue] == false)
 ```
 
 -----
@@ -438,6 +440,8 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 }
 ```
 This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+
+## Boolean 
 
 ## Xcode project
 
