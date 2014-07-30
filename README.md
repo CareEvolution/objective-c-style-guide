@@ -114,7 +114,8 @@ When methods return an error parameter by reference, switch on the returned valu
 **For example:**
 ```objc
 NSError *error;
-if (![self trySomethingWithError:&error]) {
+if (![self trySomethingWithError:&error]) 
+{
     // Handle Error
 }
 ```
@@ -123,7 +124,8 @@ if (![self trySomethingWithError:&error]) {
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
-if (error) {
+if (error) 
+{
     // Handle Error
 }
 ```
@@ -232,9 +234,11 @@ In general comments are more permissable in obj-c than they are in C#.
 `init` methods should be structured like this:
 
 ```objc
-- (instancetype)init {
+- (instancetype)init 
+{
     self = [super init]; // or call the designated initalizer
-    if (self) {
+    if (self) 
+    {
         // Custom initialization
     }
 
@@ -378,14 +382,16 @@ This allows for more consistency across files and greater visual clarity.
 **For example:**
 
 ```objc
-if (!someObject) {
+if (!someObject) 
+{
 }
 ```
 
 **Not:**
 
 ```objc
-if (someObject == nil) {
+if (someObject == nil) 
+{
 }
 ```
 
@@ -418,11 +424,13 @@ Text and example taken from the [Cocoa Naming Guidelines](https://developer.appl
 
 Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objc
-+ (instancetype)sharedInstance {
++ (instancetype)sharedInstance 
+{
    static id sharedInstance = nil;
 
    static dispatch_once_t onceToken;
-   dispatch_once(&onceToken, ^{
+   dispatch_once(&onceToken, 
+   ^{
       sharedInstance = [[self alloc] init];
    });
 
