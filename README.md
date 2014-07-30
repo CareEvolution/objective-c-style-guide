@@ -52,15 +52,17 @@ UIApplication.sharedApplication.delegate;
 
 ## Spacing
 
-* Indent using 4 spaces. Never indent with tabs. Be sure to set this preference in Xcode.
-* Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
+* Use default XCode indentation settings.
+* Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on a new line and close on a new line.
 
 **For example:**
 ```objc
-if (user.isHappy) {
+if (user.isHappy) 
+{
 //Do something
 }
-else {
+else 
+{
 //Do something else
 }
 ```
@@ -73,7 +75,8 @@ Conditional bodies should always use braces even when a conditional body could b
 
 **For example:**
 ```objc
-if (!error) {
+if (!error) 
+{
     return success;
 }
 ```
@@ -156,7 +159,8 @@ Property definitions should be used in place of naked instance variables wheneve
 **Not:**
 
 ```objc
-@interface NYTSection : NSObject {
+@interface NYTSection : NSObject 
+{
     NSString *headline;
 }
 ```
@@ -183,7 +187,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-A three letter prefix (e.g. `NYT`) should always be used for class names and constants, however may be omitted for Core Data entity names. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
+A three letter prefix (e.g. `CE`) should always be used for class names and constants, however may be omitted for Core Data entity names. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
 
 **For example:**
 
@@ -218,6 +222,8 @@ id varnm;
 When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
+
+In general comments are more permissable in obj-c than they are in C#.
 
 ## init and dealloc
 
@@ -293,15 +299,15 @@ Constants are preferred over in-line string literals or numbers, as they allow f
 **For example:**
 
 ```objc
-static NSString * const NYTAboutViewControllerCompanyName = @"The New York Times Company";
+static NSString * const CEAboutViewControllerCompanyName = @"CareEvolution, Inc.";
 
-static const CGFloat NYTImageThumbnailHeight = 50.0;
+static const CGFloat CEImageThumbnailHeight = 50.0;
 ```
 
 **Not:**
 
 ```objc
-#define CompanyName @"The New York Times Company"
+#define CompanyName @"CareEvolution, Inc."
 
 #define thumbnailHeight 2
 ```
@@ -313,7 +319,8 @@ When using `enum`s, it is recommended to use the new fixed underlying type speci
 **Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, NYTAdRequestState) {
+typedef NS_ENUM(NSInteger, NYTAdRequestState) 
+{
     NYTAdRequestStateInactive,
     NYTAdRequestStateLoading
 };
@@ -326,7 +333,8 @@ When working with bitmasks, use the `NS_OPTIONS` macro.
 **Example:**
 
 ```objc
-typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
+typedef NS_OPTIONS(NSUInteger, NYTAdCategory) 
+{
   NYTAdCategoryAutos      = 1 << 0,
   NYTAdCategoryJobs       = 1 << 1,
   NYTAdCategoryRealState  = 1 << 2,
@@ -341,7 +349,7 @@ Private properties should be declared in class extensions (anonymous categories)
 **For example:**
 
 ```objc
-@interface NYTAdvertisement ()
+@interface CEAdvertisement ()
 
 @property (nonatomic, strong) GADBannerView *googleAdView;
 @property (nonatomic, strong) ADBannerView *iAdView;
@@ -428,15 +436,3 @@ This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
 
 When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
-
-# Other Objective-C Style Guides
-
-If ours doesn't fit your tastes, have a look at some other style guides:
-
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
-* [GitHub](https://github.com/github/objective-c-conventions)
-* [Adium](https://trac.adium.im/wiki/CodingStyle)
-* [Sam Soffes](https://gist.github.com/soffes/812796)
-* [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
-* [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
-* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
