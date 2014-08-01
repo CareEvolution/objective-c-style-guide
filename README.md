@@ -191,7 +191,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-A three letter prefix (e.g. `CE`) should always be used for class names and constants, however may be omitted for Core Data entity names. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
+For frameworks and shared code, a three letter prefix (e.g. `CEV`) should always be used for class names and constants, however may be omitted for Core Data entity names. For standalone applications, the prefix can also be omitted.  Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
 
 **For example:**
 
