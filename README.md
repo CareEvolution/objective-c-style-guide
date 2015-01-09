@@ -377,9 +377,9 @@ Images that are used for a similar purpose should be grouped in respective group
 
 ## Booleans
 
-Use `true` and `false` instead of `YES` and `NO`.
+Per Objective-C idioms, use `YES` and `NO` not `true` and `false`.
 
-Since `nil` resolves to `false` it is unnecessary to compare it in conditions. Never compare something directly to `true`, because `true` is defined to 1 and a `BOOL` can be up to 8 bits.
+Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
 
 This allows for more consistency across files and greater visual clarity.
 
@@ -411,8 +411,8 @@ if (![someObject boolValue])
 **Not:**
 
 ```objc
-if (isAwesome == true) // Never do this.
-if ([someObject boolValue] == false)
+if (isAwesome == YES) // Never do this.
+if ([someObject boolValue] == NO)
 ```
 
 -----
