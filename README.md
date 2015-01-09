@@ -227,6 +227,15 @@ When they are needed, comments should be used to explain **why** a particular pi
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
+Use `///` to create a documentation comment if a method or property requires more explanation than is inferred with its name. (For instance, when returning an NSArray, it can be helpful to specify the class of the objects in the array.)
+
+```objective-c
+/// Returns an array of CEVFoo objects in order from largest to smallest.
+- (NSArray *)myFoos;
+```
+
+This lightweight context-sensitive help can be accessed by option+clicking a usage of this method or property in Xcode.
+
 In general comments are more permissable in obj-c than they are in C#.
 
 ## init and dealloc
